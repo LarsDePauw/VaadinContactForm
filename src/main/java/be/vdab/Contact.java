@@ -3,9 +3,10 @@ package be.vdab;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Contact {
+public class Contact implements Serializable {
     @NotNull
     private String firstName;
     @NotNull
@@ -65,5 +66,9 @@ public class Contact {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public String toString() {
+        return "(firstname: " + firstName + ", lastname: " + lastName + ")";
     }
 }
